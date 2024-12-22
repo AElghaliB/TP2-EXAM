@@ -34,7 +34,8 @@ class _AddClothingItemScreenState extends State<AddClothingItemScreen> {
     if (!_formKey.currentState!.validate() || _imageFile == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Tous les champs sont obligatoires, y compris l\'image.'),
+          content:
+              Text('Tous les champs sont obligatoires, y compris l\'image.'),
         ),
       );
       return;
@@ -114,10 +115,10 @@ class _AddClothingItemScreenState extends State<AddClothingItemScreen> {
                   controller: _priceController,
                   decoration: const InputDecoration(labelText: 'Prix'),
                   keyboardType: TextInputType.number,
-                  validator: (value) => value == null ||
-                          double.tryParse(value) == null
-                      ? 'Veuillez entrer un prix valide'
-                      : null,
+                  validator: (value) =>
+                      value == null || double.tryParse(value) == null
+                          ? 'Veuillez entrer un prix valide'
+                          : null,
                 ),
                 const SizedBox(height: 20),
                 _imageFile == null

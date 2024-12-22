@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../services/Cart_service.dart';
 
 class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+  const CartScreen({super.key, required String userId});
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -111,7 +111,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                   ],
-                ),
-    );
-  }
+               ),
+);
+}
 }

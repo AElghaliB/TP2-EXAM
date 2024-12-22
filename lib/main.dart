@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tp2exam/screens/User_screen.dart';
 import 'firebase_options.dart';
 import 'screens/login_screen.dart';
 import 'screens/clothing_list_screen.dart';
@@ -28,17 +28,17 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: LoginScreen(),debugShowCheckedModeBanner: false, 
       routes: {
         '/home': (context) => ClothingListScreen(),
-        '/cart': (context) => CartScreen(),
+        '/cart': (context) => CartScreen(userId: FirebaseAuth.instance.currentUser!.uid),
         '/add': (context) => AddClothingItemScreen(),
         '/details': (context) => ClothingDetailScreen(
               item: ModalRoute.of(context)!.settings.arguments
                   as Map<String, dynamic>,
             ),
         '/user': (context) => UserScreen(),
-      },
-    );
-  }
+     },
+);
+}
 }

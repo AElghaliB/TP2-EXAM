@@ -14,12 +14,8 @@ class _ClothingListScreenState extends State<ClothingListScreen> {
     switch (index) {
       case 0:
         return _buildClothingList();
-      case 1:
-        return const Center(child: Text('Panier à venir...'));
-      case 2:
-        return const Center(child: Text('Profil utilisateur à venir...'));
       default:
-        return _buildClothingList();
+        return const Center(child: Text('Page non définie.'));
     }
   }
 
@@ -47,12 +43,12 @@ class _ClothingListScreenState extends State<ClothingListScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: ListTile(
                 leading: Image.network(
-                  data['image'] ?? 'default_image_url',  // Assurez-vous qu'il y a une image
+                  data['image'] ?? 'default_image_url', // Assurez-vous qu'il y a une image
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
                 ),
-                title: Text(data['titre'] ?? 'Titre indisponible'),  // Utilisation de 'titre' et 'default' si null
+                title: Text(data['titre'] ?? 'Titre indisponible'), // Utilisation de 'titre' et 'default' si null
                 subtitle: Text(
                   'Catégorie : ${data['categorie'] ?? 'Non spécifié'} - Taille : ${data['taille'] ?? 'Non spécifiée'} - Prix : ${data['prix'] ?? 'Non disponible'} € - Marque : ${data['marque'] ?? 'Non spécifiée'}',
                 ),
@@ -60,7 +56,7 @@ class _ClothingListScreenState extends State<ClothingListScreen> {
                   Navigator.pushNamed(
                     context,
                     '/details',
-                    arguments: data,  // Envoie les données du vêtement dans les arguments
+                    arguments: data, // Envoie les données du vêtement dans les arguments
                   );
                 },
               ),
@@ -85,9 +81,13 @@ class _ClothingListScreenState extends State<ClothingListScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          if (index == 1) {
+            Navigator.pushNamed(context, '/cart'); // Redirige vers la page du panier
+          } else {
+            setState(() {
+              _currentIndex = index;
+            });
+          }
         },
         items: const [
           BottomNavigationBarItem(
