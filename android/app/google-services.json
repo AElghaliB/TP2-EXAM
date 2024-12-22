@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "266091057762",
+    "project_id": "tp2exam-8521e",
+    "storage_bucket": "tp2exam-8521e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266091057762:android:d99365e7a5bf4b45b2f73b",
+        "android_client_info": {
+          "package_name": "com.example.tp2exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDY73rGeg7E2lBeuPPAeOag96YvN8-UIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
